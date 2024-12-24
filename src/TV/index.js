@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Log } from '../LightningSdkPlugins'
+import { Log } from '@lightningjs/sdk'
 
 import { channels, randomChannel } from './defaults'
 

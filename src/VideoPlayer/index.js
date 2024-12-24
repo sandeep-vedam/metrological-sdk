@@ -20,7 +20,8 @@
 import executeAsPromise from '@michieljs/execute-as-promise'
 
 import Metrics from '../Metrics'
-import { Log, Ads, Settings, ApplicationInstance } from '../LightningSdkPlugins'
+import { Log, Ads, Settings } from '@lightningjs/sdk'
+import { ApplicationInstance } from '@lightningjs/sdk/src/Launch'
 
 import events from './events'
 import autoSetupMixin from '../helpers/autoSetupMixin'
@@ -245,7 +246,7 @@ const videoPlayerPlugin = {
             })
             .catch(e => {
               fireOnConsumer('Error', { videoElement: videoEl, event: e })
-        
+
               // This is not API-compliant, as it results in firing "$videoPlayererror" rather than "$videoPlayerError".
               // See docs here for API-compliant events -> https://github.com/Metrological/metrological-sdk/blob/master/docs/plugins/videoplayer.md#event-overview
               // It has been kept for backwards compatability for library consumers who may have already written handler functions to match it.
@@ -452,7 +453,10 @@ const videoPlayerPlugin = {
 
 export default autoSetupMixin(videoPlayerPlugin, () => {
   precision =
-    (ApplicationInstance && ApplicationInstance.stage && ApplicationInstance.stage.getRenderPrecision()) || precision
+    (ApplicationInstance &&
+      ApplicationInstance.stage &&
+      ApplicationInstance.stage.getRenderPrecision()) ||
+    precision
 
   videoEl = setupVideoTag()
 

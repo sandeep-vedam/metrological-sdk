@@ -17,14 +17,15 @@
  * limitations under the License.
  */
 
-import { Settings, ApplicationInstance, Log } from '../LightningSdkPlugins'
+import { Settings, Log } from '@lightningjs/sdk'
+import { ApplicationInstance } from '@lightningjs/sdk/src/Launch'
 import PinDialog from './dialog'
 
 // only used during local development
 let unlocked = false
 const contextItems = ['purchase', 'parental']
 
-let submit = (pin, context) => {
+let submit = pin => {
   return new Promise((resolve, reject) => {
     if (pin.toString() === Settings.get('platform', 'pin', '0000').toString()) {
       unlocked = true
@@ -79,7 +80,9 @@ export default {
   },
   hide() {
     ApplicationInstance.focus = null
-    ApplicationInstance.children = ApplicationInstance.children.map(child => child !== pinDialog && child)
+    ApplicationInstance.children = ApplicationInstance.children.map(
+      child => child !== pinDialog && child
+    )
     pinDialog = null
   },
   submit(pin, context) {

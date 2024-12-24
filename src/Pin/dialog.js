@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-import { Lightning } from '../LightningSdkPlugins'
+import { Lightning } from '@lightningjs/sdk'
+
 import Pin from '../Pin'
 
 const PinInput = () => {
@@ -72,7 +73,6 @@ const PinInput = () => {
       }
     }
   }
-
 }
 
 export default () => {

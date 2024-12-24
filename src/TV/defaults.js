@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-import { Settings } from '../LightningSdkPlugins'
+import { Settings } from '@lightningjs/sdk'
 
 const defaultChannels = [
   {
