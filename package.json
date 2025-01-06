@@ -23,7 +23,7 @@
     "url-polyfill": "^1.1.10",
     "whatwg-fetch": "^3.0.0",
     "@lightningjs/core": "^2.6.0",
-    "@lightningjs/sdk": "5.5.4"
+    "@lightningjs/sdk": "https://github.com/sandeep-vedam/Lightning-SDK.git#feat/splitsdk"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
